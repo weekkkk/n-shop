@@ -12,6 +12,13 @@ class TypeService {
     return type;
   }
   /**
+   * * Получить тип по id
+   */
+  async getTypeById(id) {
+    const type = await BrandModel.findById(id);
+    return type;
+  }
+  /**
    * * Получить бренды
    */
   async getTypes() {

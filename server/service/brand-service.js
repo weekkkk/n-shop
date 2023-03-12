@@ -12,6 +12,13 @@ class BrandService {
     return brand;
   }
   /**
+   * * Получить бренд по id
+   */
+  async getBrandById(id) {
+    const brand = await BrandModel.findById(id);
+    return brand;
+  }
+  /**
    * * Получить бренды
    */
   async getBrands() {
