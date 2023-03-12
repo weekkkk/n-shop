@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import NButton from '@/components/button/n-button.vue';
-import { EColor } from '@/components/enums';
-import { useUserStore } from '@/stores';
 import { useRouter } from 'vue-router';
+import NButton from 'shell/components/button/n-button.vue';
+import { EColor } from 'shell/components/enums';
+import { useUserStore } from '@/stores';
 
 const router = useRouter();
 

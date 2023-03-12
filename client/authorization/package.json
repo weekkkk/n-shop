@@ -6,8 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build"
+    "dts": "webpack --config ./script.dts.js --name dts --mode development",
+    "tar": "tar czvf public/authorization-dts.tgz -C .exposes-types/ authorization",
+    "srt": "webpack --config ./script.srt.js --name srt --mode development"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -26,11 +27,14 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "dts-loader": "^0.1.8",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "webpack-cli": "^5.0.1",
+    "webpack-remote-types-plugin": "^0.2.7"
   },
   "eslintConfig": {
     "root": true,

@@ -18,6 +18,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "*": [
+        "./.remotes-types/*"
       ]
     },
     "lib": [
@@ -32,8 +35,9 @@
     "./src/**/*.tsx",
     "./src/**/*.vue",
     "./tests/**/*.ts",
-    "./tests/**/*.tsx"
-, "src/assets/fonts/index.scss"  ],
+    "./tests/**/*.tsx",
+    "src/assets/fonts/index.scss"
+  ],
   "exclude": [
     "node_modules"
   ]

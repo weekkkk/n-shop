@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import NInput from '@/components/input/n-input.vue';
-import { EType } from '@/components/input/enums';
-import NButton from '@/components/button/n-button.vue';
-import { EColor, ESize } from '@/components/enums';
 import { useRoute, useRouter } from 'vue-router';
+import NInput from 'shell/components/avatar';
+import { EType } from 'shell/components/input/enums';
+import NButton from 'shell/components/button';
+import { EColor, ESize } from 'shell/components/enums';
 import { useUserStore } from '@/stores';
 
 const route = useRoute();

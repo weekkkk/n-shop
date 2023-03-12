@@ -2,7 +2,7 @@
 node_modules
 /dist
 /.exposes-types
-/.retotes-types
+/.remotes-types
 /public/layout-dts.tgz
 
 
