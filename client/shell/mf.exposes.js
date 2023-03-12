@@ -11,8 +11,8 @@ module.exports = {
    * * Компоненты
    */
   './components/enums': './src/components/enums/index.ts',
-  './components/avatar': './src/components/avatar/n-avatar.vue',
-  './components/button': './src/components/button/n-button.vue',
+  './components/avatar': './src/components/avatar/index.ts',
+  './components/button': './src/components/button/index.ts',
   './components/input/enums': './src/components/input/enums',
-  './components/input': './src/components/input/n-input.vue',
+  './components/input': './src/components/input/index.ts',
 };
