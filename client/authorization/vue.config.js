@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
 const webpack = require('webpack');
-const exposes = require('./.exposes');
+const exposes = require('./mf.exposes');
+const remotes = require('./mf.remotes');
 module.exports = defineConfig({
   pages: {
     index: {
@@ -21,13 +22,21 @@ module.exports = defineConfig({
     },
   },
   configureWebpack: {
+    optimization: {
+      splitChunks: false,
+    },
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         name: 'shell',
         filename: 'remoteEntry.js',
+        remotes: remotes,
         exposes: exposes,
         shared: {
           vue: {
+            singleton: true,
+            eager: true,
+          },
+          'vue-router': {
             singleton: true,
             eager: true,
           },

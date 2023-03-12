@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { computed } from 'vue';
 const route = useRoute();
 /**
  * * Заголовок
  */
-const title = computed(() => route?.meta?.title + '');
+const title = computed(() => route?.meta?.title);
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const title = computed(() => route?.meta?.title + '');
       <div class="form-row g-3">
         <h3 class="lh-no">n<span class="c-brand">chat</span></h3>
         <h2 v-if="title" class="lh-no ta-c fw-semi-bold">
-          {{ title.toLowerCase() }}
+          {{ title }}
         </h2>
       </div>
       <RouterView />

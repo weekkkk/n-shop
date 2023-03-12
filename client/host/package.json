@@ -1,13 +1,11 @@
 {
-  "name": "layout",
+  "name": "host",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dts": "webpack --config ./script.dts.js --name dts --mode development",
-    "tar": "tar czvf public/layout-dts.tgz -C .exposes-types/ layout",
     "srt": "webpack --config ./script.srt.js --name srt --mode development"
   },
   "dependencies": {
@@ -25,7 +23,6 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
-    "dts-loader": "^0.1.8",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",

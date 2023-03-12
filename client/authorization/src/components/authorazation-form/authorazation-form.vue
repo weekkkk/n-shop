@@ -1,14 +1,15 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import NInput from 'shell/components/avatar';
+import NInput from 'shell/components/input';
 import { EType } from 'shell/components/input/enums';
 import NButton from 'shell/components/button';
-import { EColor, ESize } from 'shell/components/enums';
-import { useUserStore } from 'authorization/stores';
+import { EColor } from 'shell/components/enums';
+import { useUserStore } from '@/stores';
 
 const route = useRoute();
 const router = useRouter();
+
 /**
  * * Страница регистрации или авторизации
  */

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import FormLayout from './components/form-layout.vue';
+import FormLayout from './components/form-layout/form-layout.vue';
 </script>
 
 <template>

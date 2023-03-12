@@ -3,6 +3,7 @@ import {
   createWebHistory,
   type RouteRecordRaw,
 } from 'vue-router';
+
 /**
  * * Роуты
  */
@@ -10,13 +11,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'authorazation',
     path: '/',
-    component: () => import('@/layouts/form-layout.vue'),
+    component: () => import('layout/components/form-layout'),
     redirect: { name: 'login' },
     children: [
       {
         name: 'login',
         path: 'login',
-        component: () => import('@/forms/authorazation-form.vue'),
+        component: () =>
+          import('@/components/authorazation-form/authorazation-form.vue'),
         meta: {
           title: 'Вход',
         },
@@ -24,7 +26,8 @@ const routes: Array<RouteRecordRaw> = [
       {
         name: 'registration',
         path: 'registration',
-        component: () => import('@/forms/authorazation-form.vue'),
+        component: () =>
+          import('@/components/authorazation-form/authorazation-form.vue'),
         meta: {
           title: 'Регистрация',
         },
@@ -32,7 +35,8 @@ const routes: Array<RouteRecordRaw> = [
       {
         name: 'activation',
         path: 'activation',
-        component: () => import('@/forms/activation-form.vue'),
+        component: () =>
+          import('@/components/activation-form/activation-form.vue'),
         meta: {
           title: 'Активация',
         },

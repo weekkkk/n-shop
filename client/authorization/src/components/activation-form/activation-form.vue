@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 import NButton from 'shell/components/button/n-button.vue';
 import { EColor } from 'shell/components/enums';
-import { useUserStore } from 'authorization/stores';
+import { useUserStore } from '@/stores';
 
 const router = useRouter();
 

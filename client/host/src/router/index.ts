@@ -8,12 +8,16 @@ import {
  */
 const routes: Array<RouteRecordRaw> = [
   {
-    name: 'form',
+    name: 'authorization',
     path: '/',
-    meta: {
-      title: 'test',
-    },
-    component: () => import('@/components/form-layout/form-layout.vue'),
+    component: () => import('layout/components/form-layout'),
+    children: [
+      {
+        name: 'login',
+        path: '/login',
+        component: () => import('layout/components/form-layout'),
+      },
+    ],
   },
 ];
 const router = createRouter({
