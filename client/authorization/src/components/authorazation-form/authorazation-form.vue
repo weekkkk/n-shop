@@ -5,7 +5,7 @@ import NInput from 'shell/components/avatar';
 import { EType } from 'shell/components/input/enums';
 import NButton from 'shell/components/button';
 import { EColor, ESize } from 'shell/components/enums';
-import { useUserStore } from '@/stores';
+import { useUserStore } from 'authorization/stores';
 
 const route = useRoute();
 const router = useRouter();
