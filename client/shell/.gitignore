@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/.exposes-types
+/public/shell-dts.tgz
 
 
 # local env files
