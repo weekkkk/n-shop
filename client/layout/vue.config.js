@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 const webpack = require('webpack');
+const remotes = require('./mf.remotes');
 const exposes = require('./mf.exposes');
 module.exports = defineConfig({
   pages: {
@@ -12,7 +13,7 @@ module.exports = defineConfig({
     /**
      * * Порт локальной разработки текущего приложения
      */
-    port: 3010,
+    port: 3020,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -21,13 +22,11 @@ module.exports = defineConfig({
     },
   },
   configureWebpack: {
-    optimization: {
-      splitChunks: false,
-    },
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         name: 'shell',
         filename: 'remoteEntry.js',
+        remotes: remotes,
         exposes: exposes,
         shared: {
           vue: {
