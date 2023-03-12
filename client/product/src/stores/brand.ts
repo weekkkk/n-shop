@@ -38,7 +38,7 @@ const useBrandStore = defineStore('brand', () => {
     }
   }
 
-  return { create, getBrands };
+  return { brands, create, getBrands };
 });
 
 export default useBrandStore;

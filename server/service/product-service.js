@@ -28,6 +28,13 @@ class ProductService {
     return product;
   }
   /**
+   * * Получить продукт по id
+   */
+  async getProducts(id) {
+    const product = await ProductModel.findById(id);
+    return product;
+  }
+  /**
    * * Получить продукты
    */
   async getProducts(brandId = '', typeId = '') {

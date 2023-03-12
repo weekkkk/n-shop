@@ -4,11 +4,15 @@ import { IProduct } from '@/interfaces';
 import { ProductService } from '@/services';
 
 /**
- * * Стор для работы с брендами
+ * * Стор для работы с продуктами
  */
 const useProductStore = defineStore('product', () => {
   /**
-   * * Бренды
+   * * Продукт
+   */
+  const product = ref<IProduct>();
+  /**
+   * * Продукты
    */
   const products = ref<IProduct[]>([]);
 
@@ -26,7 +30,19 @@ const useProductStore = defineStore('product', () => {
     }
   }
   /**
-   * * Получить бренды
+   * * Получить продукт по id
+   */
+  async function getProductById(id: string) {
+    try {
+      const response = await ProductService.getProductById(id);
+      console.log(response);
+      product.value = response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  /**
+   * * Получить продукты
    */
   async function getProducts(brandId?: string, typeId?: string) {
     try {
@@ -38,7 +54,7 @@ const useProductStore = defineStore('product', () => {
     }
   }
 
-  return { create, getProducts };
+  return { product, products, create, getProductById, getProducts };
 });
 
 export default useProductStore;

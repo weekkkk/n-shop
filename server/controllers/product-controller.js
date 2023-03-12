@@ -22,6 +22,18 @@ class ProductController {
     }
   }
   /**
+   * * Получить продукт по id
+   */
+  async getProductById(req, res, next) {
+    try {
+      const { id } = req.params;
+      const product = await productService.getProductById(id);
+      return res.json(product);
+    } catch (e) {
+      next(e);
+    }
+  }
+  /**
    * * Получить продукты
    */
   async getProducts(req, res, next) {

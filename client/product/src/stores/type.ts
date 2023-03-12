@@ -38,7 +38,7 @@ const useTypeStore = defineStore('type', () => {
     }
   }
 
-  return { create, getTypes };
+  return { types, create, getTypes };
 });
 
 export default useTypeStore;

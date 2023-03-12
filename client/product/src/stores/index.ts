@@ -6,4 +6,8 @@ import useBrandStore from './brand';
  * * Стор для работы с типами
  */
 import useTypeStore from './type';
-export { useBrandStore, useTypeStore };
+/**
+ * * Стор для работы с продуктами
+ */
+import useProductStore from './product';
+export { useBrandStore, useTypeStore, useProductStore };
