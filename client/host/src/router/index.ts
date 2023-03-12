@@ -11,11 +11,23 @@ const routes: Array<RouteRecordRaw> = [
     name: 'authorization',
     path: '/',
     component: () => import('layout/components/form-layout'),
+    redirect: { name: 'login' },
     children: [
       {
         name: 'login',
-        path: '/login',
-        component: () => import('layout/components/form-layout'),
+        path: 'login',
+        component: () => import('authorization/components/authorazation-form'),
+        meta: {
+          title: 'Вход',
+        },
+      },
+      {
+        name: 'registration',
+        path: 'registration',
+        component: () => import('authorization/components/authorazation-form'),
+        meta: {
+          title: 'Регистрация',
+        },
       },
     ],
   },

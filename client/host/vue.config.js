@@ -7,7 +7,7 @@ module.exports = defineConfig({
       entry: './src/index.ts',
     },
   },
-  publicPath: 'auto',
+  publicPath: '/',
   devServer: {
     /**
      * * Порт локальной разработки текущего приложения
@@ -21,14 +21,20 @@ module.exports = defineConfig({
     },
   },
   configureWebpack: {
+    optimization: {
+      splitChunks: false,
+    },
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         name: 'host',
         filename: 'remoteEntry.js',
         remotes: remotes,
-        exposes: exposes,
         shared: {
           vue: {
+            singleton: true,
+            eager: true,
+          },
+          'vue-router': {
             singleton: true,
             eager: true,
           },
