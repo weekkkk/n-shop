@@ -15,7 +15,7 @@ class TypeService {
    * * Получить тип по id
    */
   async getTypeById(id) {
-    const type = await BrandModel.findById(id);
+    const type = await TypeModel.findById(id);
     return type;
   }
   /**

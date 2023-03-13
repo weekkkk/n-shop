@@ -20,15 +20,20 @@ const routes: Array<RouteRecordRaw> = [
         name: 'test',
         path: '',
         component: () => import('layout/components/aside-layout'),
+        redirect: {
+          name: 'product-list',
+        },
         children: [
           {
             name: 'product-list',
             path: '/product-list/:brandId?/:typeId?',
             components: {
+              aside: () =>
+                import('@/components/product-filter/product-filter.vue'),
               main: () =>
                 import('@/pages/product-list-page/product-list-page.vue'),
             },
-            props: { main: true },
+            props: { aside: true, main: true },
           },
         ],
       },

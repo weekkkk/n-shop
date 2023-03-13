@@ -30,7 +30,7 @@ class ProductService {
   /**
    * * Получить продукт по id
    */
-  async getProducts(id) {
+  async getProductById(id) {
     const product = await ProductModel.findById(id);
     return product;
   }

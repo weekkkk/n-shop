@@ -17,7 +17,7 @@
   width: 100%;
   flex-grow: 1;
   aside {
-    width: 200px;
+    min-width: 200px;
   }
   main {
     flex-grow: 1;

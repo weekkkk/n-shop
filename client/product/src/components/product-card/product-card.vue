@@ -30,7 +30,6 @@ const props = defineProps({
 .product-card {
   display: inline-flex;
   cursor: pointer;
-  width: 200px;
   figure {
     overflow: hidden;
     aspect-ratio: 1;

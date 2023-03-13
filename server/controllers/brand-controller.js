@@ -1,3 +1,4 @@
+const BrandDto = require('../dtos/brand-dto');
 const ApiError = require('../exceptions/api-error');
 const brandService = require('../service/brand-service');
 
@@ -9,7 +10,8 @@ class BrandController {
     try {
       const { name } = req.body;
       const brand = await brandService.create(name);
-      return res.json(brand);
+      const brandData = new BrandDto(brand);
+      return res.json(brandData);
     } catch (e) {
       next(e);
     }
@@ -20,7 +22,8 @@ class BrandController {
   async getBrands(req, res, next) {
     try {
       const brands = await brandService.getBrands();
-      return res.json(brands);
+      const brandsData = brands.map((brand) => new BrandDto(brand));
+      return res.json(brandsData);
     } catch (e) {
       next(e);
     }

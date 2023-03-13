@@ -1,6 +1,7 @@
 <script lang="ts" async setup>
 import ProductCard from '@/components/product-card/product-card.vue';
 import { useProductStore } from '@/stores';
+import { onBeforeRouteUpdate } from 'vue-router';
 
 const props = defineProps({
   /**
@@ -21,6 +22,10 @@ const productStore = useProductStore();
  * * Получть продукт
  */
 await productStore.getProducts(props.brandId, props.typeId);
+
+onBeforeRouteUpdate(async () => {
+  await productStore.getProducts(props.brandId, props.typeId);
+});
 </script>
 
 <template>
@@ -38,6 +43,6 @@ await productStore.getProducts(props.brandId, props.typeId);
 .product-list {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
 }
 </style>

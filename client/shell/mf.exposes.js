@@ -15,4 +15,6 @@ module.exports = {
   './components/button': './src/components/button/index.ts',
   './components/input/enums': './src/components/input/enums',
   './components/input': './src/components/input/index.ts',
+  './components/option/enums': './src/components/option/enums',
+  './components/option': './src/components/option/index.ts',
 };
