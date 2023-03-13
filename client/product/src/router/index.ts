@@ -38,9 +38,17 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
       {
-        name: 'product',
-        path: '/product/:id',
-        component: () => import('@/pages/product-page/product-page.vue'),
+        name: 'test2',
+        path: '',
+        component: () => import('layout/components/base-layout'),
+        children: [
+          {
+            name: 'product',
+            path: 'product/:id',
+            component: () => import('@/pages/product-page/product-page.vue'),
+            props: true,
+          },
+        ],
       },
     ],
   },

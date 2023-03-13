@@ -34,6 +34,8 @@ const useProductStore = defineStore('product', () => {
    */
   async function getProductById(id: string) {
     try {
+      console.log({ id });
+
       const response = await ProductService.getProductById(id);
       console.log(response);
       product.value = response.data;

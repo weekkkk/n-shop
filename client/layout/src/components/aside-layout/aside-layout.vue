@@ -22,5 +22,11 @@
   main {
     flex-grow: 1;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    aside {
+      width: 100%;
+    }
+  }
 }
 </style>

@@ -17,9 +17,9 @@ const props = defineProps({
     </figure>
 
     <div class="f fd-col rg-1">
-      <p class="fw-medium lh-compact">
+      <h3 class="fw-semi-bold lh-compact">
         {{ product.name }}
-      </p>
+      </h3>
 
       <p class="fw-semi-bold">{{ product.price }} р</p>
     </div>
@@ -39,13 +39,13 @@ const props = defineProps({
       object-fit: cover;
     }
   }
-  p {
+  h3 {
     transition: 0.25s ease-in-out;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   &:hover {
-    p {
+    h3 {
       color: var(--n-brand);
     }
   }

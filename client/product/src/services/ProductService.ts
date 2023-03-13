@@ -16,6 +16,7 @@ export default class ProductService {
    * * Получить продукты
    */
   static getProductById(id: string): Promise<AxiosResponse<IProduct>> {
+    console.log({ id });
     return $product.get<IProduct>('/' + id);
   }
   /**

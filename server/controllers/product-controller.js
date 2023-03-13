@@ -33,7 +33,9 @@ class ProductController {
       const { id } = req.params;
       const productId = new ObjectId(id);
       const product = await productService.getProductById(productId);
-      const productData = new ProductDto(product);
+      const brand = await brandService.getBrandById(product.brandId);
+      const type = await typeService.getTypeById(product.typeId);
+      const productData = new ProductDto(product, brand, type);
       return res.json(productData);
     } catch (e) {
       next(e);

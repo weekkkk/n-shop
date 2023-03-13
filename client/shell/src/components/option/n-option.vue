@@ -128,6 +128,7 @@ $is: var(--n-option-is);
     padding: $py $px;
     background-color: $bg;
     min-height: $sz;
+    transition: 0.15s ease-in-out;
     i.icon {
       line-height: 1;
       font-size: $is;
