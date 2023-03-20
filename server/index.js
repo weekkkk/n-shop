@@ -16,17 +16,21 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(expressFileupload({}));
 app.use(cookieParser());
-var whitelist = ['http://localhost:3200', 'http://localhost:8080'];
+var whitelist = [
+  'http://localhost:3200',
+  'http://localhost:3100',
+  'http://localhost:8080',
+];
 app.use(
   cors({
     credentials: true,
     origin: function (origin, callback) {
-      // console.log(origin);
-      // if (whitelist.indexOf(origin) !== -1) {
+      console.log(origin);
+      if (whitelist.indexOf(origin) !== -1) {
         callback(null, true);
-      // } else {
-      //   callback(new Error('Not allowed by CORS'));
-      // }
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
     },
   })
 );

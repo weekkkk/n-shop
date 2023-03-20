@@ -47,16 +47,16 @@ class TokenService {
   }
   /**
    * * Сохранить токен
-   * @param user - id пользователя
+   * @param userId - id пользователя
    * @param refreshToken - refresh токен
    */
-  async saveToken(user, refreshToken) {
-    const tokenData = await TokenModel.findOne({ user });
+  async saveToken(userId, refreshToken) {
+    const tokenData = await TokenModel.findOne({ userId });
     if (tokenData) {
       tokenData.refreshToken = refreshToken;
       return tokenData.save();
     }
-    const token = await TokenModel.create({ user, refreshToken });
+    const token = await TokenModel.create({ userId, refreshToken });
     return token;
   }
   /**
@@ -77,10 +77,10 @@ class TokenService {
   }
   /**
    * * Удалить токен по id пользователя
-   * @param user - id пользователя
+   * @param userId - id пользователя
    */
-  async deleteUserToken(user) {
-    const tokenData = await TokenModel.deleteOne({ user });
+  async deleteUserToken(userId) {
+    const tokenData = await TokenModel.deleteOne({ userId });
     return tokenData;
   }
 }

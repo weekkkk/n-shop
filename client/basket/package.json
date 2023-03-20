@@ -1,0 +1,61 @@
+{
+  "name": "authorization",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dts": "webpack --config ./script.dts.js --name dts --mode development",
+    "tar": "tar czvf public/authorization-dts.tgz -C .exposes-types/ authorization",
+    "srt": "webpack --config ./script.srt.js --name srt --mode development"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.3.4",
+    "core-js": "^3.8.3",
+    "pinia": "^2.0.32",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "dts-loader": "^0.1.8",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "typescript": "~4.5.5",
+    "webpack-cli": "^5.0.1",
+    "webpack-remote-types-plugin": "^0.2.7"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "vue/setup-compiler-macros": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

@@ -53,8 +53,6 @@ function updateType(value: string) {
 
 <template>
   <div class="product-filter f fd-col rg-3">
-    <!-- {{ brandId }} -->
-    <!-- {{ typeId }} -->
     <div class="f fd-col rg-2">
       <p class="c-second-100 fw-medium fs-small-p">Бренд</p>
 

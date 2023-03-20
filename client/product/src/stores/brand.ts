@@ -31,7 +31,6 @@ const useBrandStore = defineStore('brand', () => {
   async function getBrands() {
     try {
       const response = await BrandService.getBrands();
-      console.log(response);
       brands.value = response.data;
     } catch (e) {
       console.log(e);

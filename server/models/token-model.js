@@ -7,7 +7,7 @@ const TokenSchema = new Schema({
   /**
    * * Пользователь, которому принадлежит токен
    */
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
   /**
    * * Токен
    */
