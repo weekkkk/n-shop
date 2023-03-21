@@ -4,12 +4,16 @@ const router = express.Router();
 const basketController = require('../controllers/basket-controller');
 
 /**
- * * Создать корзину
- */
-router.post('/', basketController.create);
-/**
  * * Получить продукты
  */
 router.get('/products', basketController.getProducts);
+/**
+ * * Добавить продукты
+ */
+router.post('/products',basketController.addProducts);
+/**
+ * * Бурать продукты из корзины
+ */
+router.put('/products', basketController.removeProducts);
 
 module.exports = router;

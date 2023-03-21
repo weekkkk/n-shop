@@ -1,24 +1,9 @@
-const BasketDto = require('../dtos/basket-dto');
 const ApiError = require('../exceptions/api-error');
 const basketService = require('../service/basket-service');
 const tokenService = require('../service/token-service');
 const productService = require('../service/product-service');
 
 class BasketController {
-  /**
-   * * Создание
-   */
-  async create(req, res, next) {
-    try {
-      const { refreshToken } = req.cookies;
-      const { userId } = await tokenService.findToken(refreshToken);
-      const basket = await basketService.create(userId);
-      const basketData = new BasketDto(basket);
-      return res.json(basketData);
-    } catch (e) {
-      next(e);
-    }
-  }
   /**
    * * Получить продукты корзины
    */
@@ -36,6 +21,38 @@ class BasketController {
       }
 
       return res.json(products);
+    } catch (e) {
+      next(e);
+    }
+  }
+  /**
+   * * Добавить продукты в корзину
+   */
+  async addProducts(req, res, next) {
+    try {
+      const { refreshToken } = req.cookies;
+      const { userId } = await tokenService.findToken(refreshToken);
+      const { productIds } = req.body;
+
+      await basketService.addProducts(userId, productIds);
+
+      return res.json();
+    } catch (e) {
+      next(e);
+    }
+  }
+  /**
+   * * Убрать продукты из корзины
+   */
+  async removeProducts(req, res, next) {
+    try {
+      const { refreshToken } = req.cookies;
+      const { userId } = await tokenService.findToken(refreshToken);
+      const { productIds } = req.body;
+
+      await basketService.removeProducts(userId, productIds);
+
+      return res.json();
     } catch (e) {
       next(e);
     }

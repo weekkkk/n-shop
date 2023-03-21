@@ -8,7 +8,7 @@ module.exports = defineConfig({
       entry: './src/index.ts',
     },
   },
-  publicPath: 'auto',
+  publicPath: '/',
   devServer: {
     /**
      * * Порт локальной разработки текущего приложения

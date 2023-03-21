@@ -22,7 +22,7 @@ module.exports = {
           {
             loader: 'dts-loader',
             options: {
-              name: 'authorization', // Название приложение
+              name: 'product', // Название приложение
               exposes: exposes,
               typesOutputDir: '.exposes-types', // Папка в которую собираются d.ts файлы
             },

@@ -1,4 +1,5 @@
 const BasketModel = require('../models/basket-model');
+const ApiError = require('../exceptions/api-error');
 
 /**
  * * Сервис корзины
@@ -22,9 +23,12 @@ class BasketService {
    * * Добавление продуктов в корзину
    */
   async addProducts(userId, productIds) {
-    const basket = await BasketModel.findOne({ userId });
+    let basket = await BasketModel.findOne({ userId });
+    if (!basket) {
+      basket = await this.create(userId);
+    }
     basket.productIds = basket.productIds.concat(productIds);
-    return basket.save();
+    await basket.save();
   }
   /**
    * * Получить продукты корзины
@@ -32,6 +36,28 @@ class BasketService {
   async getProducts(userId) {
     const { productIds } = await BasketModel.findOne({ userId });
     return productIds;
+  }
+  /**
+   * * Убрать продукты из корзины
+   */
+  async removeProducts(userId, productIds) {
+    const basket = await BasketModel.findOne({ userId });
+    basket.productIds = basket.productIds.filter(
+      (productId) => !productIds.includes(productId)
+    );
+    await basket.save();
+    if (!basket.productIds.length) {
+      await this.remove(userId);
+    }
+  }
+  /**
+   * * Получить продукты корзины
+   */
+  async getProducts(userId) {
+    const basket = await BasketModel.findOne({ userId });
+    if (!basket)
+      throw ApiError.BadRequest('У данного пользователя нет созданной корзины');
+    return basket.productIds;
   }
 }
 

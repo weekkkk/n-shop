@@ -3,7 +3,10 @@
 <template>
   <div class="base-layout w-100 f fd-col ai-c p-3">
     <main class="container f fd-col p-3 br-3 bg-default">
-      <RouterView />
+      <Suspense>
+        <RouterView />
+        <template #fallback> loading... </template>
+      </Suspense>
     </main>
   </div>
 </template>

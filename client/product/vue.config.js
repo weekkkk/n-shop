@@ -27,7 +27,7 @@ module.exports = defineConfig({
     },
     plugins: [
       new webpack.container.ModuleFederationPlugin({
-        name: 'authorization',
+        name: 'product',
         filename: 'remoteEntry.js',
         remotes: remotes,
         exposes: exposes,

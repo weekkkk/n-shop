@@ -17,8 +17,9 @@ app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(expressFileupload({}));
 app.use(cookieParser());
 var whitelist = [
-  'http://localhost:3200',
   'http://localhost:3100',
+  'http://localhost:3200',
+  'http://localhost:3300',
   'http://localhost:8080',
 ];
 app.use(
