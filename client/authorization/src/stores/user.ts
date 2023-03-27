@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { readonly, ref } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import { API_URL } from '@/api/authorization';
@@ -104,13 +104,13 @@ const useUserStore = defineStore('user', () => {
   }
 
   return {
-    user,
+    user: readonly(user),
     login,
     registration,
     cancelRegistration,
     logout,
     checkAuth,
-    isAuthChecked,
+    isAuthChecked: readonly(isAuthChecked),
     getUsers,
   };
 });

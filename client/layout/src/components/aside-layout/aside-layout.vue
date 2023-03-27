@@ -3,10 +3,16 @@
 <template>
   <div class="aside-layout container f ai-fs g-3 p-3">
     <aside class="f fd-col p-3 br-3 bg-default">
-      <RouterView name="aside" />
+      <Suspense>
+        <RouterView name="aside" />
+        <template #fallback> Loading... </template>
+      </Suspense>
     </aside>
     <main class="f fd-col p-3 br-3 bg-default">
-      <RouterView name="main" />
+      <Suspense>
+        <RouterView name="main" />
+        <template #fallback> Loading... </template>
+      </Suspense>
     </main>
   </div>
 </template>

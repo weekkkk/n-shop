@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dts": "webpack --config ./script.dts.js --name dts --mode development",
-    "tar": "tar czvf public/authorization-dts.tgz -C .exposes-types/ authorization",
+    "tar": "tar czvf public/basket-dts.tgz -C .exposes-types/ basket",
     "srt": "webpack --config ./script.srt.js --name srt --mode development"
   },
   "dependencies": {

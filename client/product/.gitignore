@@ -3,7 +3,7 @@ node_modules
 /dist
 /.exposes-types
 /.remotes-types
-/public/authorization-dts.tgz
+/public/product-dts.tgz
 
 
 # local env files

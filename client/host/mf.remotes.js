@@ -11,4 +11,12 @@ module.exports = {
    * * Авторизация
    */
   authorization: 'authorization@http://localhost:3100/remoteEntry.js',
+  /**
+   * * Продукт
+   */
+    product: 'product@http://localhost:3200/remoteEntry.js',
+/**
+   * * Корзина
+   */
+basket: 'basket@http://localhost:3300/remoteEntry.js',
 };

@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: 'basket',
             name: 'basket',
-            component: () => import('@/pages/basket-page.vue'),
+            component: () => import('@/pages/basket-page'),
           },
         ],
       },

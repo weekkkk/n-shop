@@ -13,10 +13,9 @@
 
 <style lang="scss" scoped>
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   .container {
     max-width: 1024px;
     width: 100%;

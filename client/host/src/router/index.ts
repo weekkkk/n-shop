@@ -29,6 +29,39 @@ const routes: Array<RouteRecordRaw> = [
           title: 'Регистрация',
         },
       },
+      {
+        name: 'activation',
+        path: 'activation',
+        component: () => import('authorization/components/activation-form'),
+        meta: {
+          title: 'Активация',
+        },
+      },
+    ],
+  },
+  {
+    name: 'default',
+    path: '/',
+    component: () => import('layout/components/header-layout'),
+    redirect: { name: 'routes-with-aside' },
+    children: [
+      {
+        name: 'routes-with-aside',
+        path: '',
+        component: () => import('layout/components/aside-layout'),
+        redirect: { name: 'products' },
+        children: [
+          {
+            name: 'products',
+            path: '/products/:brandId?/:typeId?',
+            components: {
+              aside: () => import('product/components/product-filter'),
+              main: () => import('product/pages/product-list-page'),
+            },
+            props: { aside: true, main: true },
+          },
+        ],
+      },
     ],
   },
 ];
@@ -38,3 +71,37 @@ const router = createRouter({
 });
 export { routes };
 export default router;
+
+import { useUserStore } from 'authorization/stores';
+import { IUser } from 'authorization/interfaces';
+/**
+ * * Обработка переходов по роутам
+ */
+router.beforeEach(async (to, from, next) => {
+  const { title } = to.meta;
+  const brand = '';
+  if (title) document.title = `${brand}${title as string}`;
+
+  const userStore = useUserStore();
+
+  if (!userStore.isAuthChecked) {
+    await userStore.checkAuth();
+  }
+
+  const user: IUser | undefined = userStore.user;
+  const toName = to.name?.toString() || '';
+
+  const noAuthorazationRouteNames = ['login', 'registation', 'activation'];
+
+  console.log({ toName, user });
+
+  if (user && user.isActivated && noAuthorazationRouteNames.includes(toName)) {
+    next({ name: 'default' });
+  } else if (!user && toName != 'login' && toName != 'registration') {
+    next({ name: 'login' });
+  } else if (user && !user.isActivated && toName != 'activation') {
+    next({ name: 'activation' });
+  } else {
+    next();
+  }
+});
