@@ -62,6 +62,21 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        name: 'routes',
+        path: '',
+        component: () => import('layout/components/base-layout'),
+        redirect: { name: 'product' },
+        children: [
+          {
+            name: 'product',
+            path: '/product/:id',
+            component: () => import('product/pages/product-page'),
+            props: true,
+          },
+        ],
+      },
+      
     ],
   },
 ];
